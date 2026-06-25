@@ -1,6 +1,6 @@
 // PASSWORD
 
-const PASSWORD = "pragati123";
+const PASSWORD = "pragati143";
 
 function checkPassword() {
 
@@ -135,7 +135,7 @@ function startTypewriter() {
 // COUNTDOWN
 
 const targetDate =
-new Date("2026-12-31 00:00:00").getTime();
+new Date("2026-07-16 00:00:00").getTime();
 
 setInterval(() => {
 
