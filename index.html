@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story ❤️ | Rohit & Pragati</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#ffd1ff);
+overflow-x:hidden;
+min-height:100vh;
+color:#fff;
+}
+
+.hidden{
+display:none !important;
+}
+
+/* Floating Hearts */
+
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+pointer-events:none;
+z-index:1;
+overflow:hidden;
+}
+
+.heart{
+position:absolute;
+bottom:-50px;
+font-size:22px;
+animation:floatUp linear infinite;
+opacity:.8;
+}
+
+@keyframes floatUp{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+10%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* Password Screen */
+
+#loginScreen{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+position:relative;
+z-index:5;
+}
+
+.login-card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(12px);
+padding:35px;
+border-radius:25px;
+text-align:center;
+width:100%;
+max-width:400px;
+box-shadow:0 8px 30px rgba(0,0,0,.2);
+}
+
+.login-card h1{
+font-family:'Dancing Script',cursive;
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.login-card p{
+margin-bottom:20px;
+}
+
+.login-card input{
+width:100%;
+padding:15px;
+border:none;
+outline:none;
+border-radius:12px;
+font-size:16px;
+margin-bottom:15px;
+}
+
+.btn{
+padding:14px 25px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+font-size:16px;
+font-weight:600;
+background:#ff4f81;
+color:white;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* Main Content */
+
+#mainContent{
+position:relative;
+z-index:5;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-family:'Dancing Script',cursive;
+font-size:4rem;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:1.2rem;
+max-width:700px;
+}
+
+.music-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+z-index:1000;
+width:60px;
+height:60px;
+border-radius:50%;
+background:#ff4f81;
+border:none;
+color:white;
+font-size:24px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+/* Countdown */
+
+.countdown{
+padding:50px 20px;
+text-align:center;
+}
+
+.countdown h2{
+margin-bottom:20px;
+}
+
+.timer{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.box{
+background:rgba(255,255,255,.2);
+padding:20px;
+border-radius:20px;
+min-width:90px;
+}
+
+.box span{
+display:block;
+font-size:2rem;
+font-weight:bold;
+}
+
+/* Scrapbook */
+
+.section-title{
+text-align:center;
+font-size:2.3rem;
+margin:40px 0;
+font-family:'Dancing Script',cursive;
+}
+
+.scrapbook{
+max-width:1100px;
+margin:auto;
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.memory-card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(10px);
+border-radius:20px;
+overflow:hidden;
+transition:.4s;
+cursor:pointer;
+}
+
+.memory-card:hover{
+transform:translateY(-10px);
+}
+
+.memory-card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.memory-content{
+padding:20px;
+}
+
+.memory-content h3{
+margin-bottom:10px;
+}
+
+/* Letter */
+
+.letter{
+padding:60px 20px;
+display:flex;
+justify-content:center;
+}
+
+.letter-card{
+max-width:800px;
+background:rgba(255,255,255,.15);
+padding:30px;
+border-radius:25px;
+backdrop-filter:blur(12px);
+}
+
+.letter-card h2{
+margin-bottom:20px;
+text-align:center;
+}
+
+#typewriter{
+font-size:18px;
+line-height:1.8;
+min-height:180px;
+}
+
+/* Promise */
+
+.promise{
+padding:80px 20px;
+text-align:center;
+}
+
+.promise-box{
+max-width:850px;
+margin:auto;
+background:rgba(255,255,255,.15);
+padding:40px;
+border-radius:25px;
+backdrop-filter:blur(10px);
+}
+
+.promise-box h2{
+font-family:'Dancing Script',cursive;
+font-size:3rem;
+margin-bottom:20px;
+}
+
+footer{
+text-align:center;
+padding:40px 20px;
+}
+
+/* Modal */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+justify-content:center;
+align-items:center;
+z-index:999;
+padding:20px;
+}
+
+.modal-content{
+background:white;
+color:#333;
+padding:25px;
+border-radius:20px;
+max-width:600px;
+width:100%;
+text-align:center;
+}
+
+.close-btn{
+margin-top:15px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:3rem;
+}
+
+.hero p{
+font-size:1rem;
+}
+
+.promise-box h2{
+font-size:2.2rem;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<!-- LOGIN -->
+
+<section id="loginScreen">
+
+<div class="login-card">
+<h1>❤️ Our Story ❤️</h1>
+
+<p>Enter our special password</p>
+
+<input
+type="password"
+id="passwordInput"
+placeholder="Enter password">
+
+<button class="btn" onclick="checkPassword()">
+Open Scrapbook
+</button>
+
+<p style="margin-top:15px;font-size:14px;">
+Hint: Use the password you and Pragati share ❤️
+</p>
+
+</div>
+
+</section>
+
+<!-- MAIN CONTENT -->
+
+<div id="mainContent" class="hidden">
+
+<button class="music-btn" onclick="toggleMusic()">
+🎵
+</button>
+
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<section class="hero">
+
+<h1>Rohit ❤️ Pragati</h1>
+
+<p>
+Every memory, every smile, every late-night call,
+every challenge, every dream...
+This is our story.
+</p>
+
+</section>
+
+<section class="countdown">
+
+<h2>⏳ Until We Meet Again</h2>
+
+<div class="timer">
+
+<div class="box">
+<span id="days">00</span>
+Days
+</div>
+
+<div class="box">
+<span id="hours">00</span>
+Hours
+</div>
+
+<div class="box">
+<span id="minutes">00</span>
+Minutes
+</div>
+
+<div class="box">
+<span id="seconds">00</span>
+Seconds
+</div>
+
+</div>
+
+</section>
+
+<h2 class="section-title">📖 Our Memories</h2>
+
+<section class="scrapbook">
+
+<!-- Memory 1 -->
+
+<div class="memory-card"
+onclick="openMemory(
+'The Day We Met',
+'The day everything changed. I never knew someone could become so important to me.'
+)">
+<img src="https://picsum.photos/500/300?random=1">
+<div class="memory-content">
+<h3>The Beginning ❤️</h3>
+<p>Where our story started.</p>
+</div>
+</div>
+
+<!-- Memory 2 -->
+
+<div class="memory-card"
+onclick="openMemory(
+'Late Night Calls',
+'Some of my favorite memories are simply talking to you for hours.'
+)">
+<img src="https://picsum.photos/500/300?random=2">
+<div class="memory-content">
+<h3>Late Night Calls 🌙</h3>
+<p>Hours felt like minutes.</p>
+</div>
+</div>
+
+<!-- Memory 3 -->
+
+<div class="memory-card"
+onclick="openMemory(
+'Your Smile',
+'Your smile can make my worst day feel beautiful.'
+)">
+<img src="https://picsum.photos/500/300?random=3">
+<div class="memory-content">
+<h3>Your Smile 😊</h3>
+<p>My favorite view.</p>
+</div>
+</div>
+
+<!-- Memory 4 -->
+
+<div class="memory-card"
+onclick="openMemory(
+'Our Strength',
+'We faced challenges but never stopped caring.'
+)">
+<img src="https://picsum.photos/500/300?random=4">
+<div class="memory-content">
+<h3>Our Journey 💕</h3>
+<p>Growing together.</p>
+</div>
+</div>
+
+<!-- Memory 5 -->
+
+<div class="memory-card"
+onclick="openMemory(
+'Future Together',
+'The best memories are still waiting for us.'
+)">
+<img src="https://picsum.photos/500/300?random=5">
+<div class="memory-content">
+<h3>Our Future ✨</h3>
+<p>The chapters yet to come.</p>
+</div>
+</div>
+
+</section>
+
+<section class="letter">
+
+<div class="letter-card">
+
+<h2>💌 A Letter For Pragati</h2>
+
+<p id="typewriter"></p>
+
+</div>
+
+</section>
+
+<section class="promise">
+
+<div class="promise-box">
+
+<h2>🌙 11:11 Promise</h2>
+
+<p>
+At every 11:11, my wish will always be the same —
+your happiness, your peace, and a future where
+we continue choosing each other every day.
+
+I know I am not perfect.
+I know I have made mistakes.
+
+But I promise to keep growing,
+keep learning,
+and keep proving through my actions
+that you are loved beyond words.
+
+Forever yours,
+❤️ Rohit
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+Made with endless love for Pragati ❤️
+
+</footer>
+
+</div>
+
+<!-- MODAL -->
+
+<div class="modal" id="memoryModal">
+
+<div class="modal-content">
+
+<h2 id="modalTitle"></h2>
+
+<p id="modalText"></p>
+
+<button class="btn close-btn"
+onclick="closeModal()">
+Close
+</button>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
